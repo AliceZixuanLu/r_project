@@ -1,0 +1,41 @@
+{
+    // Default install R4.3, point your R version, such as 4.2.3,
+    // Check the pre-compiled packages at https://github.com/orgs/rocker-org/packages
+    // ML will be installed with cuda.
+    // tidyverse has two version, devcontainer is under heavily developing.
+    "name": "R4",
+    //"image":  "ghcr.io/rocker-org/r-ver:4.2.3",
+    //"image": "ghcr.io/rocker-org/devcontainer/r-ver:4",
+    // Seems not work with Jupyter plugin !!!
+    "image":  "ghcr.io/rocker-org/tidyverse:4.2.3",
+    //"image":  "ghcr.io/rocker-org/tidyverse:4.3",
+    //"image":  "ghcr.io/rocker-org/devcontainer/tidyverse:4.2",
+    //"image":  "ghcr.io/rocker-org/ml-verse:4.3",
+    "hostRequirements": {
+        "cpus": 4
+    },
+    "waitFor": "onCreateCommand",
+    "updateContentCommand": "",
+    "postCreateCommand": "",
+    "customizations": {
+       "vscode": {
+           "extensions": [
+               "ms-python.python",
+               "ms-toolsai.jupyter",
+               "eamodio.gitlens",
+               "streetsidesoftware.code-spell-checker",
+          ]
+       }
+     },
+    "features": {
+        "ghcr.io/rocker-org/devcontainer-features/r-rig:1": {
+            "version": "none",
+            "vscodeRSupport": "full",
+            "installJupyterlab": true,
+            "installDevTools": true,
+            "installRMarkdown": true,
+            "installREnv": true
+        }
+    }
+  }
+  

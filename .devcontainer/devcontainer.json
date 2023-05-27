@@ -1,0 +1,30 @@
+{
+  // 默认装的是 R4.3, 也可以指定4.2.3
+  "name": "R4",
+  //   "image":  "ghcr.io/rocker-org/r-ver:4.2.3",
+  "image": "ghcr.io/rocker-org/devcontainer/r-ver:4",
+  "hostRequirements": {
+    "cpus": 4
+  },
+  "waitFor": "onCreateCommand",
+  "customizations": {
+     "vscode": {
+         "extensions": [
+             "ms-python.python",
+             "ms-toolsai.jupyter",
+             "eamodio.gitlens",
+             "streetsidesoftware.code-spell-checker",
+        ]
+     }
+   },
+  "features": {
+      "ghcr.io/rocker-org/devcontainer-features/r-rig:1": {
+          "version": "none",
+          "vscodeRSupport": "full",
+          "installJupyterlab": true,
+          "installDevTools": true,
+          "installRMarkdown": true,
+          "installREnv": true
+      }
+  }
+}
